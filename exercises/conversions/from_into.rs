@@ -41,28 +41,24 @@ impl From<&str> for Person {
     fn from(s: &str) -> Person {
         println!("{}", &s);
         if s.len() == 0 {
-            println!("DEFAULT! A");
             return Person::default();
         }
 
         let mut it = s.split_once(",");
 
         if let None = it {
-            println!("DEFAULT! B");
             return Person::default();
         }
 
         let (n, a) = it.unwrap();
 
         if n.len() == 0 {
-            println!("DEFAULT! C");
             return Person::default();
         }
 
         let ag = a.parse::<usize>();
 
         if let Err(_) = ag {
-            println!("DEFAULT! D");
             return Person::default();
         }
 
